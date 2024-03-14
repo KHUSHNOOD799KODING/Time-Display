@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Date</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .bigbox {
+            width: 95%;
+            margin: auto;
+            margin-top: 120px;
+            padding: 10px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            /* background-color: aliceblue; */
+            align-items: center;
+            border: 1px solid red;
+            box-shadow: 0px 0px 20px rgb(44, 44, 44);
+        }
+
+        .nav {
+            width: 95%;
+            padding: 15px;
+            position: fixed;
+            top: 0%;
+            left: 2.5%;
+            font-size: 30px;
+            text-align: center;
+            font-weight: 900;
+            border: 2px solid lime;
+            box-shadow: 0px 0px 30px rgb(54, 54, 54);
+            background-color: rgb(37, 37, 37);
+            color: rgb(255, 221, 28);
+            z-index: 99;
+        }
+
+        .time {
+            margin: 15px 5px;
+            border: 2px solid orangered;
+            padding: 20px;
+            width: 20%;
+            background-color: rgba(0, 0, 0, 0.863);
+            box-shadow: 0px 0px 20px rgb(54, 54, 54);
+            transition: all .5s;
+        }
+
+        .time:hover {
+            scale: 1.07;
+        }
+
+        .box {
+            margin: 5px auto;
+            padding: 15px;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .first {
+            /* margin-top: 10px; */
+            font-size: 30px;
+            color: fuchsia;
+            border: 2px solid purple;
+
+        }
+
+        .second {
+            color: lightskyblue;
+            font-size: 30px;
+            border: 2px solid lightskyblue;
+        }
+
+        .third {
+            font-size: 30px;
+            color: lightgreen;
+            border: 2px solid lightseagreen;
+        }
+
+        .fourth {
+            font-size: 20px;
+            color: yellow;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid orange;
+            cursor: pointer;
+
+        }
+
+        .time h1 {
+            color: ivory;
+            border: 1px solid white;
+            text-align: center;
+            margin: 7px 0px;
+            padding: 5px 0px;
+        }
+
+        .milis {
+            display: none;
+            padding: 5px 0px;
+            color: rgb(255, 39, 39);
+            font-size: 21px;
+            border: 1px solid red;
+            transition: all 1s;
+        }
+
+
+        .ampm {
+            color: mediumspringgreen;
+            padding: 5px;
+            margin: 20px 0px;
+            font-size: 22px;
+            font-family: 900;
+            border-bottom: 2px solid mediumseagreen;
+        }
+
+        .date {
+            width: 40%;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid blue;
+            margin: 30px auto;
+            margin-bottom: 0px;
+            color: lime;
+            background-color: cornsilk;
+            display: block;
+            display: block;
+            font-size: 25px;
+            font-weight: 900;
+            box-shadow: 0px 0px 20px rgb(41, 41, 41);
+
+        }
+
+        .day {
+            /* float: right; */
+            text-align: center;
+            box-shadow: 0px 0px 20px rgb(41, 41, 41);
+            width: 30%;
+            font-size: 23px;
+            background-color: cornsilk;
+            margin: 10px auto;
+            border: 2px solid slateblue;
+            padding: 10px;
+            color: blue;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1150px) {
+
+            .bigbox {
+                margin-top: 110px;
+
+            }
+
+            .time {
+                width: 35%;
+                margin-top: 30px;
+            }
+
+            .date {
+                width: 35%;
+            }
+
+            .day {
+                width: 30%;
+            }
+
+        }
+
+        @media (max-width: 670px) {
+            .bigbox {
+                margin-top: 130px;
+
+            }
+
+            .time {
+                width: 85%;
+            }
+
+            .date {
+                width: 85%;
+            }
+
+            .day {
+                width: 70%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        -- Your Time Display Website --
+    </div>
+
+    <div class="bigbox">
+        <div class="time">
+            <h1>- TIME - </h1>
+            <span class="ampm"></span>
+            <div class="first box" id="bx">
+
+            </div>
+            <div class="second box" id="bx2">
+
+            </div>
+            <div class="third box" id="bx3">
+
+            </div>
+            <div class="fourth box" id="bx4" onclick="ftn()">
+                Show Milliseconds
+                <div class="milis" id="msec">
+                </div>
+            </div>
+        </div>
+
+        <div class="time">
+            <h1>- TIME - </h1>
+            <span class="ampm"></span>
+            <div class="first box" id="bx">
+
+            </div>
+            <div class="second box" id="bx2">
+
+            </div>
+            <div class="third box" id="bx3">
+
+            </div>
+            <div class="fourth box" onclick="ftn()">
+                Show Milliseconds
+                <div class="milis" id="msec">
+                </div>
+            </div>
+        </div>
+
+        <div class="time">
+            <h1>- TIME - </h1>
+            <span class="ampm"></span>
+            <div class="first box" id="bx">
+
+            </div>
+            <div class="second box" id="bx2">
+
+            </div>
+            <div class="third box" id="bx3">
+
+            </div>
+            <div class="fourth box" onclick="ftn()">
+                Show Milliseconds
+                <div class="milis" id="msec">
+                </div>
+            </div>
+        </div>
+
+        <div class="time">
+            <h1>- TIME - </h1>
+            <span class="ampm"></span>
+            <div class="first box" id="bx">
+
+            </div>
+            <div class="second box" id="bx2">
+
+            </div>
+            <div class="third box" id="bx3">
+
+            </div>
+            <div class="fourth box" onclick="ftn()">
+                Show Milliseconds
+                <div class="milis" id="msec">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="date" id="ddtt">
+
+    </div>
+
+    <div class="day" id="dy">
+
+    </div>
+
+    <script>
+
+        function clock() {
+
+            let bx = document.getElementsByClassName("first box");
+
+            let bx2 = document.getElementsByClassName("second box");
+
+            let bx3 = document.getElementsByClassName("third box");
+
+            let ampm = document.getElementsByClassName("ampm");
+
+
+            const hour = new Date().getHours();
+
+            const hr = hour % 12;
+
+            const minute = new Date().getMinutes();
+
+            const second = new Date().getSeconds();
+
+
+            let h = hr < 10 ? `0${hr}` : ` ${hr}`;
+
+            let m = minute < 10 ? `0${minute}` : ` ${minute}`;
+
+            let s = second < 10 ? `0${second}` : ` ${second}`;
+
+            let ap = hour < 12 ? `AM` : `PM`;
+
+            for (let i = 0; i < bx.length || i < bx2.length || i < bx3.length || ampm.length; i++) {
+
+                bx[i].innerHTML = h + ' hrs';
+
+                bx2[i].innerHTML = m + ' m';
+                bx3[i].innerHTML = s + ' s';
+
+                ampm[i].innerHTML = ap;
+
+            }
+
+
+
+        };
+
+        setInterval(clock, 1000);
+
+        function millisecond() {
+
+
+            let b5 = document.getElementsByClassName("milis");
+            const mls = new Date().getMilliseconds();
+            let ms = mls < 10 ? `00${mls}` : ` ${mls}` || mls < 1000 ? `0${mls}` : `${mls}`;
+            for (let i = 0; i < b5.length; i++) {
+
+                b5[i].innerHTML = ms + ' ms';
+
+            }
+        }
+
+
+        function ftn() {
+
+            let b5 = document.getElementsByClassName("milis");
+
+            if (!setInterval(millisecond, 10)) {
+                setInterval(millisecond, 10)
+            }
+            else {
+                !setInterval(millisecond, 10)
+            }
+
+            for (let i = 0; i < b5.length || b4.length; i++) {
+                if (b5[i].style.display != "block") {
+                    b5[i].style.display = "block"
+                } else {
+                    b5[i].style.display = "none"
+                }
+
+            }
+
+
+
+
+        }
+
+        function dispalydate() {
+
+            let ddtt = document.getElementById("ddtt");
+            let dy = document.getElementById("dy");
+
+            const day = new Date().getDay();
+            let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+            let today = daysOfWeek[day];
+
+            const year = new Date().getFullYear();
+            const dat = new Date().getDate();
+            const month = new Date().getMonth();
+            let mname = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+            let monthname = mname[month];
+
+            ddtt.innerHTML = ` ${dat} ` + '-' + ` ${monthname}{${month + 1}} - ` + `${year}`;
+            dy.innerHTML = ` ${today}`;
+        }
+        setInterval(dispalydate, 1000)
+
+    </script>
+
+</body>
+
+</html>
